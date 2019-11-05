@@ -34,6 +34,9 @@ namespace ContaBancariaWeb
             services.AddDbContext<Context>
                 (options => options.UseSqlServer
                 (Configuration.GetConnectionString("ContaConnection")));
+            services.AddScoped<ClienteDAO>();
+            services.AddScoped<ContaDAO>();
+            services.AddScoped<TransacaoDAO>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
