@@ -29,11 +29,11 @@ namespace Repository
             }
             return false;
         }
-        public void RemoverCliente(Cliente c)
+        public void RemoverCliente(int id)
         {
             Conta conta = new Conta();
             Cliente cliente = new Cliente();
-            cliente = c;
+            cliente = ListarPorId(id);
             conta.Cliente = cliente;
             conta = _contaDAO.BuscarContaPorCpfCliente(conta);
             if (conta == null) {
@@ -51,6 +51,11 @@ namespace Repository
         {
             _ctx.Clientes.Update(c);
             _ctx.SaveChanges();
+        }
+
+        public Cliente ListarPorId(int id)
+        {
+            return _ctx.Clientes.Find(id);
         }
 
         public Cliente BuscarClientePorCpf(Cliente c)
