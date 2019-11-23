@@ -1,0 +1,21 @@
+﻿
+@model Conta 
+
+<div class="container">
+    <form asp-action="Recuperar">
+        <fieldset>
+            <legend>Recuperar Conta</legend>
+            <div class="form-group" id="Cliente">
+                <label asp-for="Cliente.Cpf"></label>
+                <input type="text" asp-for="Cliente.Cpf" class="form-control" />
+                <span asp-validation-for="Cliente.Cpf" class="text-warning"></span>
+            </div>
+            <div class="form-group" id="Senha">
+                <label asp-for="Senha"></label>
+                <input type="text" asp-for="Senha" class="form-control" />
+                <span asp-validation-for="Senha" class="text-warning"></span>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Recuperar" />
+        </fieldset>
+    </form>
+</div>

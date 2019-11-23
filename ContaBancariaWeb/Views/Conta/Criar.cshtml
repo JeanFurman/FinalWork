@@ -1,0 +1,34 @@
+﻿
+@model Conta
+   
+<div class="container">
+    <form asp-action="Criar">
+        <fieldset>
+            <legend>Criar Conta</legend>
+            <div asp-validation-summary="ModelOnly" class="text-warning"></div>
+            <div class="form-group" id="NumeroConta">
+                
+                <label asp-for="NumeroConta"></label>
+                <input type="text" asp-for="NumeroConta" readonly=""class="form-control" />
+                <span asp-validation-for="NumeroConta" class="text-warning"></span>
+            </div>
+            <div class="form-group" id="Cliente">
+                <label >Cpf Cliente</label>
+                <input type="text" name="txtCpf" class="form-control" />
+                
+            </div>
+            <div class="form-group" id="Saldo">
+                <label asp-for="Saldo"></label>
+                <input type="text" asp-for="Saldo" class="form-control" />
+                <span asp-validation-for="Saldo" class="text-warning"></span>
+            </div>
+            <div class="form-group" id="Senha">
+                <label asp-for="Senha"></label>
+                
+                <input type="password" asp-for="Senha" class="form-control" />
+                <span asp-validation-for="Senha" class="text-warning"></span>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Criar" />
+        </fieldset>
+    </form>
+</div>
