@@ -20,7 +20,7 @@ namespace Repository
         
         public bool CadastrarCliente(Cliente c)
         {
-            if (BuscarClientePorCpf(c) == null)
+            if (BuscarClientePorCpf(c.Cpf) == null)
             {
                 _ctx.Clientes.Add(c);
                 _ctx.SaveChanges();
@@ -58,9 +58,9 @@ namespace Repository
             return _ctx.Clientes.Find(id);
         }
 
-        public Cliente BuscarClientePorCpf(Cliente c)
+        public Cliente BuscarClientePorCpf(string c)
         {
-            return _ctx.Clientes.SingleOrDefault(x => x.Cpf.Equals(c.Cpf));
+            return _ctx.Clientes.SingleOrDefault(x => x.Cpf.Equals(c));
         }
 
         public List<Cliente> ListarClientes()

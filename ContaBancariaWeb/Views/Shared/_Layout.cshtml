@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<ContaLogada> SignInManager
+@inject Microsoft.AspNetCore.Identity.UserManager<ContaLogada> UserManager
+
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -7,26 +10,64 @@
     <link href="~/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/Cliente/Index">Banco da UP</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    @if (!SignInManager.IsSignedIn(User))
+    {
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" asp-action="Index" asp-controller="Cliente">Banco da UP</a>
+            <button class="navbar-toggler" type="button"
+                    data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarColor03">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Criar Conta <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Acessar Conta</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Recuperar número conta</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+            <div class="collapse navbar-collapse" id="navbarColor03">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="Criar" asp-controller="Conta">Criar Conta <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="AcessarConta" asp-controller="Conta">Acessar Conta</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="Recuperar" asp-controller="Conta">Recuperar número conta</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    }
+    else
+    {
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" asp-action="Index" asp-controller="Transacao">Banco da UP</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor03">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="FormTransacao" asp-controller="Transacao">Transações</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="Transferencia" asp-controller="Transacao">Tranferência</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="Emprestimo" asp-controller="Transacao">Empréstimo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="Extrato" asp-controller="Extrato">Extrato</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Pagamentos</a>
+                        <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 40px, 0px);">
+                            <a class="dropdown-item" asp-action="PDivida" asp-controller="Transacao">Pagar Dívida</a>
+                            <a class="dropdown-item" asp-action="PBoleto" asp-controller="Transacao">Pagar Boleto</a>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    }
 
     <div class="m-5">
         @RenderBody()

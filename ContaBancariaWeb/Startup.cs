@@ -39,6 +39,7 @@ namespace ContaBancariaWeb
             services.AddScoped<ClienteDAO>();
             services.AddScoped<ContaDAO>();
             services.AddScoped<TransacaoDAO>();
+            services.AddHttpContextAccessor();
 
             services.AddSession();
             services.AddDistributedMemoryCache();

@@ -1,4 +1,5 @@
 ﻿using Domain;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +12,16 @@ namespace Repository
     {
         private readonly Context _ctx;
         private readonly TransacaoDAO _transacaoDAO;
-        public ContaDAO(Context _context, TransacaoDAO transacaoDAO)
+        private readonly UserManager<ContaLogada> _userManager;
+        public ContaDAO(Context _context, TransacaoDAO transacaoDAO, UserManager<ContaLogada> userManager)
         {
             _ctx = _context;
             _transacaoDAO = transacaoDAO;
+            _userManager = userManager;
         }
         public bool CriarConta(Conta c)
         {
-            if (BuscarContaPorNumero(c) == null)
+            if (BuscarContaPorNumero(c.NumeroConta) == null)
             {
                 _ctx.Contas.Add(c);
                 _ctx.SaveChanges();
@@ -38,10 +41,10 @@ namespace Repository
         }
 
 
-        public Conta BuscarContaPorNumero(Conta c)
+        public Conta BuscarContaPorNumero(int c)
         {
             return _ctx.Contas.SingleOrDefault
-               (x => x.NumeroConta.Equals(c.NumeroConta));
+               (x => x.NumeroConta.Equals(c));
         }
 
         //public static bool Depositar(Conta conta, double valor, string descricao)

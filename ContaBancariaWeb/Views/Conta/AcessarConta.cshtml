@@ -1,11 +1,11 @@
 ﻿
-@model Login
+@model Conta
 
 
 <div class="container">
-    <form asp-action="Acessar">
+    <form asp-action="AcessarConta">
         <fieldset>
-            <legend>Login</legend>
+            <legend>Acessar a Conta</legend>
             <div asp-validation-summary="ModelOnly" class="text-warning"></div>
             <div class="form-group" id="NumeroConta">
                 <label asp-for="NumeroConta"></label>
@@ -13,11 +13,11 @@
                 <span asp-validation-for="NumeroConta" class="text-warning"></span>
             </div>
             <div class="form-group" id="Senha">
-                <label asp-for="conta.Senha">Senha</label>
-                <input type="text" asp-for="conta.Senha" class="form-control" />
-                <span asp-validation-for="conta.Senha" class="text-warning"></span>
+                <label asp-for="Senha">Senha</label>
+                <input type="password" asp-for="Senha" class="form-control" />
+                <span asp-validation-for="Senha" class="text-warning"></span>
             </div>
-            <input type="submit" class="btn btn-primary" value="Acessar" />
+            <input type="submit" class="btn btn-primary" value="AcessarConta" />
 
         </fieldset>
     </form>
