@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "FormTransacao";
+    string value = ViewBag.Valor;
+}
+
+<div class="container">
+    <form>
+            <div asp-validation-summary="ModelOnly" class="text-warning"></div>
+            
+            <div class="form-group" id="Saldo">
+                <label>Digite o valor</label>
+                <input type="text" name="txtValor"class="form-control" />
+                <span class="text-warning"></span>
+            </div>
+            <div class="form-group" style="display: inline">
+                <input type="submit" class="form-control" value="Sacar" asp-action="Saque" asp-controller="Transacao"/>
+                <input type="submit" class="form-control" value="Ver Saldo" asp-action="VerSaldo" asp-controller="Transacao"/>
+                <input type="submit" class="form-control" value="Depositar" asp-action="Deposito" asp-controller="Transacao"/>
+            </div>
+            @if (value!=null)
+            {
+                <h2>R$@value</h2>
+            }
+    </form>
+</div>
+

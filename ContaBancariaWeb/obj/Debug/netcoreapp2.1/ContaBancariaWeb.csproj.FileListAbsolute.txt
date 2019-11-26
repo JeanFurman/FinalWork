@@ -34,3 +34,5 @@ C:\Users\Aluno\source\repos\ContaBancariaWeb\ContaBancariaWeb\obj\Debug\netcorea
 C:\Users\Aluno\source\repos\ContaBancariaWeb\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Conta\Criar.g.cshtml.cs
 C:\Users\Aluno\source\repos\ContaBancariaWeb\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Conta\RecuperarConta.g.cshtml.cs
 C:\Users\Aluno\source\repos\ContaBancariaWeb\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\Index.g.cshtml.cs
+C:\Users\Aluno\source\repos\ContaBancariaWeb\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\FormTransacao.g.cshtml.cs
+C:\Users\Aluno\source\repos\ContaBancariaWeb\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\Transferencia.g.cshtml.cs

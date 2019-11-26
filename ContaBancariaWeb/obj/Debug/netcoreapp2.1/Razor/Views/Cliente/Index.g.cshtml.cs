@@ -69,7 +69,7 @@ using Domain;
             WriteLiteral("<h1>Gerenciamento de Clientes</h1>\r\n");
             EndContext();
             BeginContext(110, 68, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "75df769cb13342ab90c16b335dd56777", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "74d7ed6a3acc4426b5fdb64c92dd8315", async() => {
                 BeginContext(157, 17, true);
                 WriteLiteral("Cadastrar Cliente");
                 EndContext();
@@ -166,7 +166,7 @@ using Domain;
             WriteLiteral("</td>\r\n                <td>");
             EndContext();
             BeginContext(897, 109, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f9903d0a078d4e2f9b68e04320fc887d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "58f74d3ae0d54f8987e77eacaada72a1", async() => {
                 BeginContext(995, 7, true);
                 WriteLiteral("Remover");
                 EndContext();
@@ -203,7 +203,7 @@ using Domain;
             WriteLiteral("</td>\r\n                <td>");
             EndContext();
             BeginContext(1033, 110, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "857ffa92d970484aa5f9d3bee556cb4c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "675b71f3fcc449819fa76de88e8f0ce3", async() => {
                 BeginContext(1132, 7, true);
                 WriteLiteral("Alterar");
                 EndContext();

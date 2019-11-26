@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Domain;
+﻿using Domain;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Repository;
+using System;
 
 namespace ContaBancariaWeb.Controllers
 {
@@ -32,23 +29,60 @@ namespace ContaBancariaWeb.Controllers
         }
         public IActionResult FormTransacao()
         {
+            if (TempData["Saldo"]!=null)
+            {
+                ViewBag.Valor = TempData["Saldo"].ToString();
+            }
             return View();
         }
-        public IActionResult Saque()
+        public IActionResult Saque(string txtValor)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                if (_contaDAO.Sacar(Convert.ToDouble(txtValor), "Saque", GetContaSession()))
+                {
+                    TempData["Saldo"] = Convert.ToString(_contaDAO.VerSaldo(GetContaSession()));
+                    return RedirectToAction(nameof(FormTransacao));
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Erro ao Sacar!");
+                }
+            }
+            return RedirectToAction("FormTransacao", "Transacao");
+
         }
         public IActionResult VerSaldo()
         {
-            return View();
+            TempData["Saldo"] = Convert.ToString(_contaDAO.VerSaldo(GetContaSession()));
+            return RedirectToAction(nameof(FormTransacao));
         }
-        public IActionResult Depositar()
+        public IActionResult Deposito(string txtValor)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                if (_contaDAO.Depositar(null, Convert.ToDouble(txtValor), "Deposito", GetContaSession()))
+                {
+                    TempData["Saldo"] = Convert.ToString(_contaDAO.VerSaldo(GetContaSession()));
+                    return RedirectToAction(nameof(FormTransacao));
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Erro ao Sacar!");
+                }
+            }
+            return RedirectToAction("FormTransacao", "Transacao");
         }
-        public IActionResult Transferencia()
+        public IActionResult Transferencia(Conta conta, string txtValor)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                if (_contaDAO.Tranferencia(conta, Convert.ToDouble(txtValor), "Transferência", GetContaSession()))
+                {
+                    return View();
+                }
+            }
+            return View(conta);
         }
         public IActionResult Emprestimo()
         {
