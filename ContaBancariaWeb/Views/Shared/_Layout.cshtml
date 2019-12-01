@@ -57,10 +57,9 @@
                         <a class="nav-link" asp-action="Extrato" asp-controller="Extrato">Extrato</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Pagamentos</a>
-                        <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 40px, 0px);">
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" asp-action="PDivida" asp-controller="Transacao">Pagar Dívida</a>
-                            <a class="dropdown-item" asp-action="PBoleto" asp-controller="Transacao">Pagar Boleto</a>
+                            <a class="dropdown-item" asp-action="Index" asp-controller="Boleto">Pagar Boleto</a>
                         </div>
                     </li>
 

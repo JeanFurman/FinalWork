@@ -1,0 +1,45 @@
+﻿@model Boleto
+<div class="container">
+    <form asp-action="PagarBoleto">
+        <fieldset>
+            <legend>Pagar Boleto</legend>
+            <div asp-validation-summary="ModelOnly" class="text-warning"></div>
+            <div class="form-group" id="LinhaDigitável">
+                <label>Linha Digitável</label>
+                <input type="text" asp-for="Codigo" class="form-control" />
+                <span asp-validation-for="Codigo" class="text-warning"></span>
+            </div>
+            <input type="submit" class="btn btn-primary" asp-action="BuscarBoleto" />
+            <div class="form-group" id="NomeBanco">
+                <label asp-for="NomeBanco"></label>
+                <input type="text" asp-for="NomeBanco" class="form-control" readonly="" />
+                <span asp-validation-for="NomeBanco" class="text-warning"></span>
+
+            </div>
+            <div class="form-group" id="Moeda">
+                <label asp-for="Moeda"></label>
+                <input type="text" asp-for="Moeda" class="form-control" readonly="" />
+                <span asp-validation-for="Moeda" class="text-warning"></span>
+
+            </div>
+            <div class="form-group" id="Valor">
+                <label asp-for="Valor"></label>
+                <input type="text" asp-for="Valor" class="form-control" readonly="" />
+                <span asp-validation-for="Valor" class="text-warning"></span>
+
+            </div>
+            <div class="form-group" id="DataVencimento">
+                <label asp-for="DataVencimento"></label>
+                <input type="date" asp-for="DataVencimento" class="form-control" readonly="" />
+                <span asp-validation-for="DataVencimento" class="text-warning"></span>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Pagar" />
+        </fieldset>
+    </form>
+</div>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+

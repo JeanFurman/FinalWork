@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using ContaBancariaWeb.Utils;
+using Domain;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -29,6 +30,9 @@ namespace ContaBancariaWeb.Controllers
         }
         public IActionResult FormTransacao()
         {
+            if (TempData["ErroDeposito"] != null) { ModelState.AddModelError("", TempData["ErroDeposito"].ToString()); }
+            if (TempData["ErroSaque"] != null) { ModelState.AddModelError("", TempData["ErroSaque"].ToString()); }
+            if (TempData["ErroTransferencia"] != null) { ModelState.AddModelError("", TempData["ErroTransferencia"].ToString()); }
             if (TempData["Saldo"]!=null)
             {
                 ViewBag.Valor = TempData["Saldo"].ToString();
@@ -46,7 +50,7 @@ namespace ContaBancariaWeb.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Erro ao Sacar!");
+                    TempData["ErroSaque"] =  "Erro ao Sacar!";
                 }
             }
             return RedirectToAction("FormTransacao", "Transacao");
@@ -68,19 +72,22 @@ namespace ContaBancariaWeb.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Erro ao Sacar!");
+                    TempData["ErroDeposito"] = "Erro ao Depositar!";
                 }
             }
             return RedirectToAction("FormTransacao", "Transacao");
         }
-        public IActionResult Transferencia(Conta conta, string txtValor)
+        public IActionResult Transferencia(string nrConta, string txtValor)
         {
+            Conta conta = new Conta();
+            conta = _contaDAO.BuscarContaPorNumero(Convert.ToInt32(nrConta));
             if (ModelState.IsValid)
             {
                 if (_contaDAO.Tranferencia(conta, Convert.ToDouble(txtValor), "Transferência", GetContaSession()))
                 {
                     return View();
                 }
+                TempData["ErroTransferencia"] = "Erro ao Transferir!";
             }
             return View(conta);
         }
@@ -88,6 +95,7 @@ namespace ContaBancariaWeb.Controllers
         {
             return View();
         }
+        
 
         private int GetContaSession()
         {

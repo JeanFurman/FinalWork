@@ -51,14 +51,11 @@ namespace ContaBancariaWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (ValidacaoCpf.ValidarCpf(c.Numero_de_Cpf)) {
-
-                    if (_clienteDAO.CadastrarCliente(c) == true)
-                    {
-                        return RedirectToAction("Index");
-                    }
-                    ModelState.AddModelError("", "Esse cliente já existe!");
+                if (_clienteDAO.CadastrarCliente(c) == true)
+                {
+                    return RedirectToAction("Index");
                 }
+                ModelState.AddModelError("", "Esse cliente já existe!");                
             }
             return View(c);
         }

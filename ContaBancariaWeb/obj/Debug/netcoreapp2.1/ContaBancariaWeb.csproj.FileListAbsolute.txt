@@ -74,3 +74,5 @@ C:\Users\karyn\OneDrive\Área de Trabalho\Jean\FinalWork\ContaBancariaWeb\obj\De
 C:\Users\karyn\OneDrive\Área de Trabalho\Jean\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\ContaBancariaWeb.csproj.CopyComplete
 C:\Users\karyn\OneDrive\Área de Trabalho\Jean\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\ContaBancariaWeb.dll
 C:\Users\karyn\OneDrive\Área de Trabalho\Jean\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\ContaBancariaWeb.pdb
+C:\Users\karyn\OneDrive\Área de Trabalho\Jean\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Boleto\Index.g.cshtml.cs
+C:\Users\karyn\OneDrive\Área de Trabalho\Jean\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\Emprestimo.g.cshtml.cs
