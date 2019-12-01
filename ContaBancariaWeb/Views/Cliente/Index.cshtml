@@ -22,9 +22,9 @@
         @foreach (Cliente item in Model)
         {
             <tr class="table-light">
-                <td > @item.Nome</td>
-                <td > @item.Cpf</td>
-                <td > @item.DataNasc.ToString()</td>
+                <td > @item.Nome_da_Pf</td>
+                <td > @item.Numero_de_Cpf</td>
+                <td > @item.Data_Nascimento.ToString()</td>
                 <td > @item.Contato</td>
                 <td > @item.CriadoEm</td>
                 <td><a asp-action="Remover" asp-route-id="@item.ClienteId" style="color:white" class="btn btn-danger">Remover</a></td>

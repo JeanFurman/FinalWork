@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repository;
 
 namespace Repository.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20191201001628_teste")]
+    partial class teste
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -27,13 +29,13 @@ namespace Repository.Migrations
 
                     b.Property<string>("Contato");
 
+                    b.Property<string>("Cpf");
+
                     b.Property<DateTime>("CriadoEm");
 
-                    b.Property<DateTime?>("Data_Nascimento");
+                    b.Property<DateTime?>("DataNasc");
 
-                    b.Property<string>("Nome_da_Pf");
-
-                    b.Property<string>("Numero_de_Cpf");
+                    b.Property<string>("Nome");
 
                     b.HasKey("ClienteId");
 

@@ -15,9 +15,9 @@ namespace Domain
         }
         [Key]
         public int ClienteId { get; set; }
-        public string Nome { get; set; }
-        public string Cpf { get; set; }
-        public DateTime? DataNasc { get; set; }
+        public string Nome_da_Pf { get; set; }
+        public string Numero_de_Cpf { get; set; }
+        public DateTime? Data_Nascimento { get; set; }
         public string Contato { get; set; }
         public DateTime CriadoEm { get; set; }
     }

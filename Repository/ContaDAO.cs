@@ -127,7 +127,7 @@ namespace Repository
         public Conta BuscarContaPorCpfCliente(Conta c)
         {
             return _ctx.Contas.SingleOrDefault
-               (x => x.Cliente.Cpf.Equals(c.Cliente.Cpf));
+               (x => x.Cliente.Numero_de_Cpf.Equals(c.Cliente.Numero_de_Cpf));
         }
 
         public List<Transacao> ListarTransacoes(Conta conta)
