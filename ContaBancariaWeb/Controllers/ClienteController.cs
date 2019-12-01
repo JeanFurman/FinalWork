@@ -36,7 +36,9 @@ namespace ContaBancariaWeb.Controllers
                     DeserializeObject<CpfWS>(resultado);
                 if (Convert.ToBoolean(cpf.Status)) {                  
                     c.Nome_da_Pf = cpf.Result.Nome_da_Pf;
-                    c.Numero_de_Cpf = cpf.Result.Numero_de_Cpf;
+                    string strcpf = cpf.Result.Numero_de_Cpf;
+                    strcpf = strcpf.Replace(".", "").Replace("-", "");
+                    c.Numero_de_Cpf = strcpf;
                     c.Data_Nascimento = DateTime.Parse(cpf.Result.Data_Nascimento);
                 }
                 else
@@ -62,7 +64,9 @@ namespace ContaBancariaWeb.Controllers
         [HttpPost]
         public IActionResult BuscarCpf(Cliente c)
         {
-            string url = $"https://ws.hubdodesenvolvedor.com.br/v2/cpf/?cpf={c.Numero_de_Cpf}&data={c.Data_Nascimento.Value.ToShortDateString()}&token=72321795SpGUMOtyBn130574808";
+            string cpf = c.Numero_de_Cpf;
+            cpf = cpf.Replace(".", "").Replace("-", "");
+            string url = $"https://ws.hubdodesenvolvedor.com.br/v2/cpf/?cpf={cpf}&data={c.Data_Nascimento.Value.ToShortDateString()}&token=72321795SpGUMOtyBn130574808";
             WebClient client = new WebClient();
             TempData["Cliente"] = client.DownloadString(url);
             return RedirectToAction(nameof(Cadastrar));

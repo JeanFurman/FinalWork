@@ -1,0 +1,20 @@
+﻿
+@{
+    string divida = ViewBag.Divida;
+}
+<div class="container">
+    <form>
+        @if (divida != null)
+        {
+            <input type="hidden" value="@divida" name="txtDivida"/>
+            <h1>Dívida Pendente : @divida</h1>
+            <br/>
+            <p>Juros de 5%</p>
+        }
+        else
+        {
+            <h1>Nenhuma dívida pendente!</h1>
+        }
+        <input type="submit" value="Pagar" asp-action="PagarDivida" asp-controller="Transacao" class="btn btn-warning"/>
+    </form>
+</div>

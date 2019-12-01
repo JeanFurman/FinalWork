@@ -39,7 +39,11 @@ namespace Repository
             _ctx.Contas.Remove(c);
             _ctx.SaveChanges();
         }
-
+        public void Update(Conta c)
+        {
+            _ctx.Update(c);
+            _ctx.SaveChanges();
+        }
 
         public Conta BuscarContaPorNumero(int c)
         {

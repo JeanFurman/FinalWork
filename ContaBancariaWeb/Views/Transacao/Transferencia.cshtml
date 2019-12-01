@@ -1,22 +1,19 @@
-﻿@model Conta
-@{
-    ViewData["Title"] = "Transferencia";
-}
-
+﻿
 <div class="container">
-    <form>
+    <form method="post">
         <div asp-validation-summary="ModelOnly" class="text-warning"></div>
         <div class="form-group" id="Saldo">
-            <label asp-for="NumeroConta">Digite o número da conta</label>
+            <label>Digite o número da conta</label>
             <input type="text" name="nrConta" class="form-control" />
-            <span asp-validation-for="NumeroConta" class="text-warning"></span>
+            <span class="text-warning"></span>
         </div>
         <div class="form-group" id="Saldo">
             <label>Digite o valor</label>
             <input type="text" name="txtValor" class="form-control" />
             <span class="text-warning"></span>
         </div>
-            <input type="submit" class="form-control" value="Transferir" asp-action="Transferencia" asp-controller="Transacao" />
+            <input type="submit" class="btn btn-success" value="Transferir" asp-action="Transferir" asp-controller="Transacao" />
     </form>
 </div>
+
 

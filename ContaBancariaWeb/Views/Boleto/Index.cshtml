@@ -9,7 +9,7 @@
                 <input type="text" asp-for="Codigo" class="form-control" />
                 <span asp-validation-for="Codigo" class="text-warning"></span>
             </div>
-            <input type="submit" class="btn btn-primary" asp-action="BuscarBoleto" />
+            <input type="submit" value="Buscar" class="btn btn-success" asp-action="BuscarBoleto" />
             <div class="form-group" id="NomeBanco">
                 <label asp-for="NomeBanco"></label>
                 <input type="text" asp-for="NomeBanco" class="form-control" readonly="" />
@@ -33,7 +33,7 @@
                 <input type="date" asp-for="DataVencimento" class="form-control" readonly="" />
                 <span asp-validation-for="DataVencimento" class="text-warning"></span>
             </div>
-            <input type="submit" class="btn btn-primary" value="Pagar" />
+            <input type="submit" class="btn btn-warning" value="Pagar" />
         </fieldset>
     </form>
 </div>

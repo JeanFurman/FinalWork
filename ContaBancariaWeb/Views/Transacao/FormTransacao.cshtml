@@ -13,11 +13,13 @@
                 <input type="text" name="txtValor"class="form-control" />
                 <span class="text-warning"></span>
             </div>
-            <div class="form-group" style="display: inline">
-                <input type="submit" class="form-control" value="Sacar" asp-action="Saque" asp-controller="Transacao"/>
-                <input type="submit" class="form-control" value="Ver Saldo" asp-action="VerSaldo" asp-controller="Transacao"/>
-                <input type="submit" class="form-control" value="Depositar" asp-action="Deposito" asp-controller="Transacao"/>
-            </div>
+            <table>
+                <tr>
+                    <td><input type="submit"  value="Sacar" asp-action="Saque" asp-controller="Transacao" style="width: 370px;" class="btn btn-danger"/></td>
+                    <td><input type="submit" value="Ver Saldo" asp-action="VerSaldo" asp-controller="Transacao" style="width: 370px;" class="btn btn-primary"/></td>
+                    <td><input type="submit"  value="Depositar" asp-action="Deposito" asp-controller="Transacao" style="width: 370px;" class="btn btn-success"/></td>             
+                </tr>
+            </table>
             @if (value!=null)
             {
                 <h2>R$@value</h2>

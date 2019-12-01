@@ -32,7 +32,6 @@ namespace ContaBancariaWeb.Controllers
         {
             if (TempData["ErroDeposito"] != null) { ModelState.AddModelError("", TempData["ErroDeposito"].ToString()); }
             if (TempData["ErroSaque"] != null) { ModelState.AddModelError("", TempData["ErroSaque"].ToString()); }
-            if (TempData["ErroTransferencia"] != null) { ModelState.AddModelError("", TempData["ErroTransferencia"].ToString()); }
             if (TempData["Saldo"]!=null)
             {
                 ViewBag.Valor = TempData["Saldo"].ToString();
@@ -77,25 +76,121 @@ namespace ContaBancariaWeb.Controllers
             }
             return RedirectToAction("FormTransacao", "Transacao");
         }
-        public IActionResult Transferencia(string nrConta, string txtValor)
+        public IActionResult Transferencia()
+        {
+            if (TempData["ErroTransferencia"] != null) { ModelState.AddModelError("", TempData["ErroTransferencia"].ToString()); }
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Transferir(string nrConta, string txtValor)
         {
             Conta conta = new Conta();
             conta = _contaDAO.BuscarContaPorNumero(Convert.ToInt32(nrConta));
             if (ModelState.IsValid)
             {
-                if (_contaDAO.Tranferencia(conta, Convert.ToDouble(txtValor), "Transferência", GetContaSession()))
+                if (!_contaDAO.Tranferencia(conta, Convert.ToDouble(txtValor), "Transferência", GetContaSession()))
                 {
-                    return View();
+                    TempData["ErroTransferencia"] = "Erro ao Transferir!";
                 }
-                TempData["ErroTransferencia"] = "Erro ao Transferir!";
+                
             }
-            return View(conta);
+            return RedirectToAction("Transferencia", "Transacao");
         }
         public IActionResult Emprestimo()
         {
+            if (TempData["ErroEmprestimo"] != null) { ModelState.AddModelError("", TempData["ErroEmprestimo"].ToString()); }
+            if (TempData["ErroEmprestimoD"] != null) { ModelState.AddModelError("", TempData["ErroEmprestimoD"].ToString()); }
+            if (TempData["ErroEmprestimoV"] != null) { ModelState.AddModelError("", TempData["ErroEmprestimoV"].ToString()); }
             return View();
         }
-        
+
+        [HttpPost]
+        public IActionResult Emprestimo(string txtValor)
+        {
+            Conta c = new Conta();
+            c = _contaDAO.BuscarContaPorNumero(GetContaSession());
+            double value = Convert.ToDouble(txtValor);
+            if(c.Divida==0 && value>=100)
+            {
+                if (c.Saldo <= 1000 && value > 1000)
+                {
+                    TempData["ErroEmprestimo"] = "Valor inválido! Insira o valor de acordo com a tabela!";
+                }
+                else if (c.Saldo > 1000 && c.Saldo <= 1500 && value > 2000)
+                {
+                    TempData["ErroEmprestimo"] = "Valor inválido! Insira o valor de acordo com a tabela!";
+                }
+                else if (c.Saldo > 1500 && c.Saldo <= 2000 && value > 3000)
+                {
+                    TempData["ErroEmprestimo"] = "Valor inválido! Insira o valor de acordo com a tabela!";
+                }
+                else if (c.Saldo > 2000 && value > 4000)
+                {
+                    TempData["ErroEmprestimo"] = "Valor inválido! Insira o valor de acordo com a tabela!";
+                }
+                else
+                {
+                    if (_contaDAO.Depositar(null, value, "Empréstimo", GetContaSession()))
+                    {
+                        c.Divida = value;
+                        c.DataDivida = DateTime.Now;
+                        _contaDAO.Update(c);
+                       
+                    }
+                    else { TempData["ErroEmprestimoD"] = "Erro no Empréstimo!"; }
+                    
+                }
+            }
+            else
+            {
+                TempData["ErroEmprestimoV"] = "Divida pendente ou valor inferior a 100!";
+
+            }
+            return RedirectToAction("Emprestimo", "Transacao");
+        }
+
+        public IActionResult PDivida()
+        {
+            Conta c = new Conta();
+            c = _contaDAO.BuscarContaPorNumero(GetContaSession());
+            if (c.Divida >= 100)
+            {
+                double divida = c.Divida;
+                DateTime data = (DateTime) c.DataDivida;
+                string dataStr = data.ToShortDateString();
+                string dataAtual = DateTime.Now.ToShortDateString();
+                int r = DateTime.Parse(dataAtual).Subtract(DateTime.Parse(dataStr)).Days + 1;
+                for (int i=0; i<r; i++)
+                {
+                    divida += divida * 0.05;
+                }
+                ViewBag.Divida = divida.ToString();
+            }
+            if (TempData["ErroDivida"] != null)
+            {
+                ModelState.AddModelError("", TempData["ErroDivida"].ToString());
+            }
+            return View();
+        }
+
+        public IActionResult PagarDivida(string txtDivida)
+        {
+            double divida = Convert.ToDouble(txtDivida);
+            if (_contaDAO.Sacar(divida, "Dívida Paga", GetContaSession()))
+            {
+                Conta c = new Conta();
+                c = _contaDAO.BuscarContaPorNumero(GetContaSession());
+                c.Divida = 0;
+                c.DataDivida = null;
+                _contaDAO.Update(c);
+            }
+            else
+            {
+                TempData["ErroDivida"] = "Erro ao pagar a dívida!";
+            }
+            return RedirectToAction("PDivida", "Transacao");
+        }
 
         private int GetContaSession()
         {
