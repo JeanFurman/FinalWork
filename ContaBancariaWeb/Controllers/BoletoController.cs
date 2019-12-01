@@ -25,6 +25,7 @@ namespace ContaBancariaWeb.Controllers
             Boleto b = new Boleto();
             if (TempData["ErroBoleto"] != null) { ModelState.AddModelError("", TempData["ErroBoleto"].ToString()); }
             if (TempData["ErroSaque"] != null) { ModelState.AddModelError("", TempData["ErroSaque"].ToString()); }
+            if (TempData["ErroVencimento"] != null) { ModelState.AddModelError("", TempData["ErroVencimento"].ToString()); }
 
             if (TempData["BCod"] != null)
             {
@@ -67,10 +68,18 @@ namespace ContaBancariaWeb.Controllers
         {
             Conta c = new Conta();
             c = _contaDAO.BuscarContaPorNumero(GetContaSession());
-            if (!_contaDAO.Sacar(b.Valor, "Boleto", GetContaSession()))
+            if (b.DataVencimento >= DateTime.Now)
             {
-                TempData["ErroSaque"] = "Saldo Insuficiente";
+                if (!_contaDAO.Sacar(b.Valor, "Boleto", GetContaSession()))
+                {
+                    TempData["ErroSaque"] = "Saldo Insuficiente";
+                }
             }
+            else
+            {
+                TempData["ErroVencimento"] = "Boleto Vencido!";
+            }
+            
             return RedirectToAction("Index", "Boleto"); 
         }
 
