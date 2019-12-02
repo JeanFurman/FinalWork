@@ -106,5 +106,29 @@ namespace ContaBancariaWeb.Controllers
             ModelState.AddModelError("", "Falha no login!");
             return View(conta);
         }
+        public IActionResult RecuperarConta()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult RecuperarConta(Conta conta, Cliente cliente)
+        {
+
+            if (ModelState.IsValid)
+            {
+                conta.Cliente = cliente;
+                Conta c = new Conta();
+                c = _contaDAO.BuscarContaPorCpfCliente(conta);
+                if (c != null)
+                {
+                    ViewBag.Contah = Convert.ToString(c.NumeroConta);
+                    return View();
+
+                }
+                ModelState.AddModelError("", "Esta conta não existe!");
+
+            }
+            return View(conta);
+        }
     }               
 }

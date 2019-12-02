@@ -1,7 +1,10 @@
 ﻿
-@model Conta 
-
+@model Conta
+@{
+    string valor = ViewBag.Contah;
+}
 <div class="container">
+
     <form asp-action="Recuperar">
         <fieldset>
             <legend>Recuperar Conta</legend>
@@ -12,11 +15,15 @@
             </div>
             <div class="form-group" id="Senha">
                 <label asp-for="Senha"></label>
-                <input type="text" asp-for="Senha" class="form-control" />
+                <input type="password" asp-for="Senha" class="form-control" />
                 <span asp-validation-for="Senha" class="text-warning"></span>
             </div>
-            <input type="submit" class="btn btn-primary" value="Recuperar" />
-            
+            <input type="submit" class="btn btn-primary" value="Recuperar" asp-action="RecuperarConta" />
+            @if (valor != null)
+            {
+                <h2>Número Da Conta: @valor</h2>
+            }
         </fieldset>
     </form>
 </div>
+
