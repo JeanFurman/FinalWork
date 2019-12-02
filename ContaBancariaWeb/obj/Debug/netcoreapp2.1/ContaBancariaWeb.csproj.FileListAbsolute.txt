@@ -77,3 +77,6 @@ C:\Users\karyn\OneDrive\Área de Trabalho\Jean\FinalWork\ContaBancariaWeb\obj\De
 C:\Users\karyn\OneDrive\Área de Trabalho\Jean\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\Emprestimo.g.cshtml.cs
 C:\Users\karyn\OneDrive\Área de Trabalho\Jean\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\PDivida.g.cshtml.cs
 C:\Users\karyn\OneDrive\Área de Trabalho\Jean\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\Transferencia.g.cshtml.cs
+C:\Users\Aluno\source\repos\ContaBancariaWeb\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Boleto\Index.g.cshtml.cs
+C:\Users\Aluno\source\repos\ContaBancariaWeb\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\Emprestimo.g.cshtml.cs
+C:\Users\Aluno\source\repos\ContaBancariaWeb\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\PDivida.g.cshtml.cs
