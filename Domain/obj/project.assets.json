@@ -4082,23 +4082,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\eduar\\.nuget\\packages\\": {},
+    "C:\\Users\\hiaau\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\eduar\\OneDrive\\Documentos\\Eduardo E. Teixeira\\C#FinalProject\\FinalWork\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\Users\\hiaau\\Source\\Repos\\TRABALHO FINAL\\FinalWork\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\Users\\eduar\\OneDrive\\Documentos\\Eduardo E. Teixeira\\C#FinalProject\\FinalWork\\Domain\\Domain.csproj",
-      "packagesPath": "C:\\Users\\eduar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\eduar\\OneDrive\\Documentos\\Eduardo E. Teixeira\\C#FinalProject\\FinalWork\\Domain\\obj\\",
+      "projectPath": "C:\\Users\\hiaau\\Source\\Repos\\TRABALHO FINAL\\FinalWork\\Domain\\Domain.csproj",
+      "packagesPath": "C:\\Users\\hiaau\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\hiaau\\Source\\Repos\\TRABALHO FINAL\\FinalWork\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\eduar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hiaau\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

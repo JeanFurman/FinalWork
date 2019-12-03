@@ -15,6 +15,7 @@ namespace ContaBancariaWeb.Controllers
         private readonly ClienteDAO _clienteDAO;
         private readonly UserManager<ContaLogada> _userManager;
         private readonly SignInManager<ContaLogada> _signInManager;
+
         public TransacaoController(ContaDAO contaDAO, ClienteDAO clienteDAO, UserManager<ContaLogada> userManager,
             SignInManager<ContaLogada> signInManager)
         {
@@ -190,6 +191,22 @@ namespace ContaBancariaWeb.Controllers
                 TempData["ErroDivida"] = "Erro ao pagar a dívida!";
             }
             return RedirectToAction("PDivida", "Transacao");
+        }
+
+        public IActionResult Extrato()
+        {
+            Conta c = new Conta();
+            
+
+            c = _contaDAO.BuscarContaPorNumero(GetContaSession());
+            ViewBag.SaldoExtrato = c.Saldo.ToString();
+            double Divida = c.Divida * -1;
+            ViewBag.DividaExtrato = Divida.ToString();
+
+
+
+
+            return View(_contaDAO.ListarTransacoes(c));
         }
 
         private int GetContaSession()

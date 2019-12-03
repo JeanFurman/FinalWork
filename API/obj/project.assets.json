@@ -12568,23 +12568,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\eduar\\.nuget\\packages\\": {},
+    "C:\\Users\\hiaau\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\eduar\\OneDrive\\Documentos\\Eduardo E. Teixeira\\C#FinalProject\\FinalWork\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\hiaau\\Source\\Repos\\TRABALHO FINAL\\FinalWork\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\eduar\\OneDrive\\Documentos\\Eduardo E. Teixeira\\C#FinalProject\\FinalWork\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\eduar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\eduar\\OneDrive\\Documentos\\Eduardo E. Teixeira\\C#FinalProject\\FinalWork\\API\\obj\\",
+      "projectPath": "C:\\Users\\hiaau\\Source\\Repos\\TRABALHO FINAL\\FinalWork\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\hiaau\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\hiaau\\Source\\Repos\\TRABALHO FINAL\\FinalWork\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\eduar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hiaau\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12597,8 +12597,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\eduar\\OneDrive\\Documentos\\Eduardo E. Teixeira\\C#FinalProject\\FinalWork\\Repository\\Repository.csproj": {
-              "projectPath": "C:\\Users\\eduar\\OneDrive\\Documentos\\Eduardo E. Teixeira\\C#FinalProject\\FinalWork\\Repository\\Repository.csproj"
+            "C:\\Users\\hiaau\\Source\\Repos\\TRABALHO FINAL\\FinalWork\\Repository\\Repository.csproj": {
+              "projectPath": "C:\\Users\\hiaau\\Source\\Repos\\TRABALHO FINAL\\FinalWork\\Repository\\Repository.csproj"
             }
           }
         }

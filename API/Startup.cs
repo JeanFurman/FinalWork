@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Domain;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -32,6 +33,11 @@ namespace API
                 (Configuration.GetConnectionString("ContaConnection")));
             services.AddScoped<ClienteDAO>();
             services.AddScoped<Cliente>();
+            services.AddScoped<ContaDAO>();
+            services.AddScoped<TransacaoDAO>();
+
+            services.AddIdentity<ContaLogada, IdentityRole>().
+               AddEntityFrameworkStores<Context>().AddDefaultTokenProviders();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

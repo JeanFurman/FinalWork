@@ -80,3 +80,45 @@ C:\Users\karyn\OneDrive\Área de Trabalho\Jean\FinalWork\ContaBancariaWeb\obj\De
 C:\Users\Aluno\source\repos\ContaBancariaWeb\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Boleto\Index.g.cshtml.cs
 C:\Users\Aluno\source\repos\ContaBancariaWeb\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\Emprestimo.g.cshtml.cs
 C:\Users\Aluno\source\repos\ContaBancariaWeb\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\PDivida.g.cshtml.cs
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\bin\Debug\netcoreapp2.1\ContaBancariaWeb.deps.json
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\bin\Debug\netcoreapp2.1\ContaBancariaWeb.runtimeconfig.json
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\bin\Debug\netcoreapp2.1\ContaBancariaWeb.runtimeconfig.dev.json
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\bin\Debug\netcoreapp2.1\ContaBancariaWeb.dll
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\bin\Debug\netcoreapp2.1\ContaBancariaWeb.pdb
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\bin\Debug\netcoreapp2.1\ContaBancariaWeb.Views.dll
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\bin\Debug\netcoreapp2.1\ContaBancariaWeb.Views.pdb
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\bin\Debug\netcoreapp2.1\Domain.dll
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\bin\Debug\netcoreapp2.1\Repository.dll
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\bin\Debug\netcoreapp2.1\Domain.pdb
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\bin\Debug\netcoreapp2.1\Repository.pdb
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\ContaBancariaWeb.csprojAssemblyReference.cache
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\ContaBancariaWeb.csproj.CoreCompileInputs.cache
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\ContaBancariaWeb.RazorAssemblyInfo.cache
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\ContaBancariaWeb.RazorAssemblyInfo.cs
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\ContaBancariaWeb.AssemblyInfoInputs.cache
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\ContaBancariaWeb.AssemblyInfo.cs
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\ContaBancariaWeb.TagHelpers.input.cache
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\ContaBancariaWeb.TagHelpers.output.cache
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\ContaBancariaWeb.RazorCoreGenerate.cache
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Boleto\Index.g.cshtml.cs
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Cliente\Alterar.g.cshtml.cs
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Cliente\Cadastrar.g.cshtml.cs
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Cliente\Index.g.cshtml.cs
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Conta\AcessarConta.g.cshtml.cs
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Conta\Criar.g.cshtml.cs
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Conta\RecuperarConta.g.cshtml.cs
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\Emprestimo.g.cshtml.cs
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\FormTransacao.g.cshtml.cs
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\Index.g.cshtml.cs
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\PDivida.g.cshtml.cs
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\Transferencia.g.cshtml.cs
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\ContaBancariaWeb.RazorTargetAssemblyInfo.cache
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\ContaBancariaWeb.RazorTargetAssemblyInfo.cs
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\ContaBancariaWeb.Views.pdb
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\ContaBancariaWeb.csproj.CopyComplete
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\ContaBancariaWeb.dll
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\ContaBancariaWeb.pdb
+C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\Extrato.g.cshtml.cs
