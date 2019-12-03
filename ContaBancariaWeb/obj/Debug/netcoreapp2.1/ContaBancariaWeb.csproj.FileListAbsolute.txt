@@ -122,3 +122,4 @@ C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\
 C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\ContaBancariaWeb.dll
 C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\ContaBancariaWeb.pdb
 C:\Users\hiaau\Source\Repos\TRABALHO FINAL\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\Extrato.g.cshtml.cs
+C:\Users\karyn\OneDrive\Área de Trabalho\Jean\FinalWork\ContaBancariaWeb\obj\Debug\netcoreapp2.1\Razor\Views\Transacao\Extrato.g.cshtml.cs

@@ -21,7 +21,7 @@ namespace Repository
         }
         public bool CriarConta(Conta c)
         {
-            if (BuscarContaPorNumero(c.NumeroConta) == null)
+            if (BuscarContaPorCpfCliente(c) == null)
             {
                 _ctx.Contas.Add(c);
                 _ctx.SaveChanges();

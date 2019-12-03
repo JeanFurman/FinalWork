@@ -43,14 +43,21 @@ namespace ContaBancariaWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (_contaDAO.Sacar(Convert.ToDouble(txtValor), "Saque", GetContaSession()))
+                try
                 {
-                    TempData["Saldo"] = Convert.ToString(_contaDAO.VerSaldo(GetContaSession()));
-                    return RedirectToAction(nameof(FormTransacao));
+                    if (_contaDAO.Sacar(Convert.ToDouble(txtValor), "Saque", GetContaSession()))
+                    {
+                        TempData["Saldo"] = Convert.ToString(_contaDAO.VerSaldo(GetContaSession()));
+                        return RedirectToAction(nameof(FormTransacao));
+                    }
+                    else
+                    {
+                        TempData["ErroSaque"] = "Erro ao Sacar!";
+                    }
                 }
-                else
+                catch (Exception e)
                 {
-                    TempData["ErroSaque"] =  "Erro ao Sacar!";
+                    TempData["ErroSaque"] = "Erro ao Sacar!";
                 }
             }
             return RedirectToAction("FormTransacao", "Transacao");
@@ -65,12 +72,19 @@ namespace ContaBancariaWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (_contaDAO.Depositar(null, Convert.ToDouble(txtValor), "Deposito", GetContaSession()))
+                try
                 {
-                    TempData["Saldo"] = Convert.ToString(_contaDAO.VerSaldo(GetContaSession()));
-                    return RedirectToAction(nameof(FormTransacao));
+                    if (_contaDAO.Depositar(null, Convert.ToDouble(txtValor), "Deposito", GetContaSession()))
+                    {
+                        TempData["Saldo"] = Convert.ToString(_contaDAO.VerSaldo(GetContaSession()));
+                        return RedirectToAction(nameof(FormTransacao));
+                    }
+                    else
+                    {
+                        TempData["ErroDeposito"] = "Erro ao Depositar!";
+                    }
                 }
-                else
+                catch (Exception e)
                 {
                     TempData["ErroDeposito"] = "Erro ao Depositar!";
                 }
@@ -86,15 +100,22 @@ namespace ContaBancariaWeb.Controllers
         [HttpPost]
         public IActionResult Transferir(string nrConta, string txtValor)
         {
-            Conta conta = new Conta();
-            conta = _contaDAO.BuscarContaPorNumero(Convert.ToInt32(nrConta));
-            if (ModelState.IsValid)
+            try
             {
-                if (!_contaDAO.Tranferencia(conta, Convert.ToDouble(txtValor), "Transferência", GetContaSession()))
+                Conta conta = new Conta();
+                conta = _contaDAO.BuscarContaPorNumero(Convert.ToInt32(nrConta));
+                if (ModelState.IsValid)
                 {
-                    TempData["ErroTransferencia"] = "Erro ao Transferir!";
+                    if (!_contaDAO.Tranferencia(conta, Convert.ToDouble(txtValor), "Transferência", GetContaSession()))
+                    {
+                        TempData["ErroTransferencia"] = "Erro ao Transferir!";
+                    }
+
                 }
-                
+            }
+            catch (Exception e)
+            {
+                TempData["ErroTransferencia"] = "Erro ao Transferir!";
             }
             return RedirectToAction("Transferencia", "Transacao");
         }
@@ -109,44 +130,51 @@ namespace ContaBancariaWeb.Controllers
         [HttpPost]
         public IActionResult Emprestimo(string txtValor)
         {
-            Conta c = new Conta();
-            c = _contaDAO.BuscarContaPorNumero(GetContaSession());
-            double value = Convert.ToDouble(txtValor);
-            if(c.Divida==0 && value>=100)
+            try
             {
-                if (c.Saldo <= 1000 && value > 1000)
+                Conta c = new Conta();
+                c = _contaDAO.BuscarContaPorNumero(GetContaSession());
+                double value = Convert.ToDouble(txtValor);
+                if (c.Divida == 0 && value >= 100)
                 {
-                    TempData["ErroEmprestimo"] = "Valor inválido! Insira o valor de acordo com a tabela!";
-                }
-                else if (c.Saldo > 1000 && c.Saldo <= 1500 && value > 2000)
-                {
-                    TempData["ErroEmprestimo"] = "Valor inválido! Insira o valor de acordo com a tabela!";
-                }
-                else if (c.Saldo > 1500 && c.Saldo <= 2000 && value > 3000)
-                {
-                    TempData["ErroEmprestimo"] = "Valor inválido! Insira o valor de acordo com a tabela!";
-                }
-                else if (c.Saldo > 2000 && value > 4000)
-                {
-                    TempData["ErroEmprestimo"] = "Valor inválido! Insira o valor de acordo com a tabela!";
+                    if (c.Saldo <= 1000 && value > 1000)
+                    {
+                        TempData["ErroEmprestimo"] = "Valor inválido! Insira o valor de acordo com a tabela!";
+                    }
+                    else if (c.Saldo > 1000 && c.Saldo <= 1500 && value > 2000)
+                    {
+                        TempData["ErroEmprestimo"] = "Valor inválido! Insira o valor de acordo com a tabela!";
+                    }
+                    else if (c.Saldo > 1500 && c.Saldo <= 2000 && value > 3000)
+                    {
+                        TempData["ErroEmprestimo"] = "Valor inválido! Insira o valor de acordo com a tabela!";
+                    }
+                    else if (c.Saldo > 2000 && value > 4000)
+                    {
+                        TempData["ErroEmprestimo"] = "Valor inválido! Insira o valor de acordo com a tabela!";
+                    }
+                    else
+                    {
+                        if (_contaDAO.Depositar(null, value, "Empréstimo", GetContaSession()))
+                        {
+                            c.Divida = value;
+                            c.DataDivida = DateTime.Now;
+                            _contaDAO.Update(c);
+
+                        }
+                        else { TempData["ErroEmprestimoD"] = "Erro no Empréstimo!"; }
+
+                    }
                 }
                 else
                 {
-                    if (_contaDAO.Depositar(null, value, "Empréstimo", GetContaSession()))
-                    {
-                        c.Divida = value;
-                        c.DataDivida = DateTime.Now;
-                        _contaDAO.Update(c);
-                       
-                    }
-                    else { TempData["ErroEmprestimoD"] = "Erro no Empréstimo!"; }
-                    
+                    TempData["ErroEmprestimoV"] = "Divida pendente ou valor inferior a 100!";
+
                 }
             }
-            else
+            catch (Exception e)
             {
-                TempData["ErroEmprestimoV"] = "Divida pendente ou valor inferior a 100!";
-
+                TempData["ErroEmprestimoD"] = "Erro no Empréstimo!";
             }
             return RedirectToAction("Emprestimo", "Transacao");
         }
@@ -157,15 +185,7 @@ namespace ContaBancariaWeb.Controllers
             c = _contaDAO.BuscarContaPorNumero(GetContaSession());
             if (c.Divida >= 100)
             {
-                double divida = c.Divida;
-                DateTime data = (DateTime) c.DataDivida;
-                string dataStr = data.ToShortDateString();
-                string dataAtual = DateTime.Now.ToShortDateString();
-                int r = DateTime.Parse(dataAtual).Subtract(DateTime.Parse(dataStr)).Days + 1;
-                for (int i=0; i<r; i++)
-                {
-                    divida += divida * 0.05;
-                }
+                double divida = CalcularDivida();
                 ViewBag.Divida = divida.ToString();
             }
             if (TempData["ErroDivida"] != null)
@@ -177,16 +197,23 @@ namespace ContaBancariaWeb.Controllers
 
         public IActionResult PagarDivida(string txtDivida)
         {
-            double divida = Convert.ToDouble(txtDivida);
-            if (_contaDAO.Sacar(divida, "Dívida Paga", GetContaSession()))
+            try
             {
-                Conta c = new Conta();
-                c = _contaDAO.BuscarContaPorNumero(GetContaSession());
-                c.Divida = 0;
-                c.DataDivida = null;
-                _contaDAO.Update(c);
+                double divida = Convert.ToDouble(txtDivida);
+                if (_contaDAO.Sacar(divida, "Dívida Paga", GetContaSession()))
+                {
+                    Conta c = new Conta();
+                    c = _contaDAO.BuscarContaPorNumero(GetContaSession());
+                    c.Divida = 0;
+                    c.DataDivida = null;
+                    _contaDAO.Update(c);
+                }
+                else
+                {
+                    TempData["ErroDivida"] = "Erro ao pagar a dívida!";
+                }
             }
-            else
+            catch (Exception e)
             {
                 TempData["ErroDivida"] = "Erro ao pagar a dívida!";
             }
@@ -196,19 +223,28 @@ namespace ContaBancariaWeb.Controllers
         public IActionResult Extrato()
         {
             Conta c = new Conta();
-            
-
             c = _contaDAO.BuscarContaPorNumero(GetContaSession());
             ViewBag.SaldoExtrato = c.Saldo.ToString();
-            double Divida = c.Divida * -1;
-            ViewBag.DividaExtrato = Divida.ToString();
-
-
-
-
+            double Divida = CalcularDivida() * -1;
+            ViewBag.DividaExtrato = Divida.ToString();  
             return View(_contaDAO.ListarTransacoes(c));
         }
 
+        private double CalcularDivida()
+        {
+            Conta c = new Conta();
+            c = _contaDAO.BuscarContaPorNumero(GetContaSession());
+            double divida = c.Divida;
+            DateTime data = (DateTime)c.DataDivida;
+            string dataStr = data.ToShortDateString();
+            string dataAtual = DateTime.Now.ToShortDateString();
+            int r = DateTime.Parse(dataAtual).Subtract(DateTime.Parse(dataStr)).Days + 1;
+            for (int i = 0; i < r; i++)
+            {
+                divida += divida * 0.05;
+            }
+            return divida;
+        }
         private int GetContaSession()
         {
             return Convert.ToInt32(_userManager.GetUserName(User));

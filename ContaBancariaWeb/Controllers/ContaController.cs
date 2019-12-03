@@ -33,6 +33,9 @@ namespace ContaBancariaWeb.Controllers
         }
         public IActionResult Criar()
         {
+            if (TempData["ErroCliente"] != null) { ModelState.AddModelError("", TempData["ErroCliente"].ToString()); }
+            if (TempData["ErroVInvalido"] != null) { ModelState.AddModelError("", TempData["ErroVInvalido"].ToString()); }
+            if (TempData["ErroConta"] != null) { ModelState.AddModelError("", TempData["ErroConta"].ToString()); }
             Conta conta = new Conta();
 
             return View(conta);
@@ -42,38 +45,49 @@ namespace ContaBancariaWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                ContaLogada uLogado = new ContaLogada
+                try
                 {
-                    UserName = Convert.ToString(conta.NumeroConta),
-                    Email = Convert.ToString(conta.NumeroConta)
-                };
-                IdentityResult result =
-                    await _userManager.CreateAsync(uLogado, conta.Senha);
-                if (result.Succeeded)
-                {
-                    Cliente cliente = new Cliente();
-                    cliente = _clienteDAO.BuscarClientePorCpf(txtCpf);
-                    if (cliente != null)
+                    ContaLogada uLogado = new ContaLogada
                     {
-                        conta.Cliente = cliente;
-                        Transacao t = new Transacao();
-                        t.NumeroConta = conta.NumeroConta;
-                        t.Descricao = "Saldo Inicial";
-                        t.Valor = Convert.ToDouble(conta.Saldo);
-                        _transacaoDAO.CadastrarTransacao(t);
-                        conta.Transacoes.Add(t);
-                        if (_contaDAO.CriarConta(conta))
+                        UserName = Convert.ToString(conta.NumeroConta),
+                        Email = Convert.ToString(conta.NumeroConta)
+                    };
+                    IdentityResult result =
+                        await _userManager.CreateAsync(uLogado, conta.Senha);
+                    if (result.Succeeded)
+                    {
+                        Cliente cliente = new Cliente();
+                        cliente = _clienteDAO.BuscarClientePorCpf(txtCpf);
+                        if (cliente != null)
                         {
-                            return RedirectToAction("Index", "Cliente");
+                            conta.Cliente = cliente;
+                            Transacao t = new Transacao();
+                            t.NumeroConta = conta.NumeroConta;
+                            t.Descricao = "Saldo Inicial";
+                            t.Valor = Convert.ToDouble(conta.Saldo);
+                            _transacaoDAO.CadastrarTransacao(t);
+                            conta.Transacoes.Add(t);
+                            if (_contaDAO.CriarConta(conta))
+                            {
+                                return RedirectToAction("Index", "Cliente");
+                            }
+                            TempData["ErroConta"] = "Este cliente ja tem uma conta!";
                         }
-                        ModelState.AddModelError("", "Esta conta já existe!");
+                        else
+                        {
+                            TempData["ErroCliente"] = "Cliente não existe !";
+                        }
                     }
-                    ModelState.AddModelError("", "Cliente não existe !");
+                    AdicionarErros(result);
                 }
-                AdicionarErros(result);
+                catch(Exception e)
+                {
+                    TempData["ErroVInvalido"] = "Valores Inválidos !";
+                }
+                
             }
 
-            return View(conta);
+            return RedirectToAction("Criar", "Conta");
 
         }
         private void AdicionarErros(IdentityResult result)
@@ -111,24 +125,30 @@ namespace ContaBancariaWeb.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult RecuperarConta(Conta conta, Cliente cliente)
+        public IActionResult RecuperarConta(Cliente cliente, string senha)
         {
 
             if (ModelState.IsValid)
             {
-                conta.Cliente = cliente;
                 Conta c = new Conta();
-                c = _contaDAO.BuscarContaPorCpfCliente(conta);
+                c.Cliente = cliente;
+                c = _contaDAO.BuscarContaPorCpfCliente(c);
                 if (c != null)
                 {
-                    ViewBag.Contah = Convert.ToString(c.NumeroConta);
-                    return View();
-
+                    if (c.Senha.Equals(senha))
+                    {
+                        ViewBag.Contah = Convert.ToString(c.NumeroConta);
+                        return View();
+                    }
+                    ModelState.AddModelError("", "Senha Incorreta!");
                 }
-                ModelState.AddModelError("", "Esta conta não existe!");
+                else
+                {
+                    ModelState.AddModelError("", "Esta conta não existe!");
+                }
 
             }
-            return View(conta);
+            return View();
         }
     }               
 }

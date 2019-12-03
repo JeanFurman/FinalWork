@@ -12568,23 +12568,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hiaau\\.nuget\\packages\\": {},
+    "C:\\Users\\karyn\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hiaau\\Source\\Repos\\TRABALHO FINAL\\FinalWork\\ContaBancariaWeb\\ContaBancariaWeb.csproj",
+      "projectUniqueName": "C:\\Users\\karyn\\OneDrive\\Área de Trabalho\\Jean\\FinalWork\\ContaBancariaWeb\\ContaBancariaWeb.csproj",
       "projectName": "ContaBancariaWeb",
-      "projectPath": "C:\\Users\\hiaau\\Source\\Repos\\TRABALHO FINAL\\FinalWork\\ContaBancariaWeb\\ContaBancariaWeb.csproj",
-      "packagesPath": "C:\\Users\\hiaau\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hiaau\\Source\\Repos\\TRABALHO FINAL\\FinalWork\\ContaBancariaWeb\\obj\\",
+      "projectPath": "C:\\Users\\karyn\\OneDrive\\Área de Trabalho\\Jean\\FinalWork\\ContaBancariaWeb\\ContaBancariaWeb.csproj",
+      "packagesPath": "C:\\Users\\karyn\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\karyn\\OneDrive\\Área de Trabalho\\Jean\\FinalWork\\ContaBancariaWeb\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\hiaau\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\karyn\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12597,11 +12597,11 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\hiaau\\Source\\Repos\\TRABALHO FINAL\\FinalWork\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\hiaau\\Source\\Repos\\TRABALHO FINAL\\FinalWork\\Domain\\Domain.csproj"
+            "C:\\Users\\karyn\\OneDrive\\Área de Trabalho\\Jean\\FinalWork\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\karyn\\OneDrive\\Área de Trabalho\\Jean\\FinalWork\\Domain\\Domain.csproj"
             },
-            "C:\\Users\\hiaau\\Source\\Repos\\TRABALHO FINAL\\FinalWork\\Repository\\Repository.csproj": {
-              "projectPath": "C:\\Users\\hiaau\\Source\\Repos\\TRABALHO FINAL\\FinalWork\\Repository\\Repository.csproj"
+            "C:\\Users\\karyn\\OneDrive\\Área de Trabalho\\Jean\\FinalWork\\Repository\\Repository.csproj": {
+              "projectPath": "C:\\Users\\karyn\\OneDrive\\Área de Trabalho\\Jean\\FinalWork\\Repository\\Repository.csproj"
             }
           }
         }

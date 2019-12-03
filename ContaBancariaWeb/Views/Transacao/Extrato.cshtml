@@ -10,7 +10,6 @@
 <table class="table table-hover table-striped" style="margin-top:15px; margin-bottom:15px">
     <thead>
         <tr class="table-secondary">
-            <th>Numero da Conta</th>
             <th>Valor</th>
             <th>Descrição</th>
             <th>Data</th>
@@ -21,7 +20,6 @@
         @foreach (Transacao item in Model)
         {
             <tr class="table-light">
-                <td> @item.NumeroConta</td>
                 <td> @item.Valor</td>
                 <td> @item.Descricao</td>
                 <td> @item.Data</td>
@@ -31,5 +29,8 @@
 </table>
 
 <h3>Saldo: R$@Total </h3><br/>
+@if (Convert.ToInt32(Divida) != 0)
+{
 <p style="color: #ff0000">Divida: R$@Divida</p>
+}
 
